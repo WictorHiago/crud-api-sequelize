@@ -27,7 +27,7 @@ on folder config/database.js change data to yours credentials
 
 npm install sequelize express uuid mysql2 <br>
 npm install nodemon -D <br>
-obs: install sequelize-cli <br>
+### obs: install sequelize-cli
 npm install --save-dev sequelize-cli <br>
 
 ## install POSTMAN to client side
