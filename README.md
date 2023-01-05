@@ -36,7 +36,8 @@ https://dl.pstmn.io/download/latest/win64
 
 ## import file this project on POSTMAN
 
-file available in folder this repository in format JSON
+file available in folder this repository in format JSON <br>
+api-crud-sequelize.postman_collection
 
 ## run project
 
