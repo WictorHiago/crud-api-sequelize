@@ -16,7 +16,7 @@
 
 ## 🖥️database interface:
 
-obs: i'm not using .dotenv in this project, for easy testing
+PS: i'm not using .dotenv in this project, for easy testing
 on folder config/database.js change data to yours credentials
 
 ### Mysql WorkBench
@@ -27,7 +27,7 @@ on folder config/database.js change data to yours credentials
 
 npm install sequelize express uuid mysql2 <br>
 npm install nodemon -D <br>
-### obs: install sequelize-cli
+### PS: install sequelize-cli
 npm install --save-dev sequelize-cli <br>
 
 ## install POSTMAN to client side
