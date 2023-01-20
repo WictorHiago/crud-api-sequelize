@@ -8,7 +8,7 @@
         "dev": "nodemon ./src/server.js"
     },
     "keywords": [],
-    "author": "",
+    "author": "WictorHiago",
     "license": "ISC",
     "dependencies": {
         "express": "^4.18.2",
