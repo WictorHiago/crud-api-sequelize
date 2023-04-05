@@ -9,3 +9,5 @@ module.exports = {
       underscored: true,
    },
 };
+//
+// const sequelize = new Sequelize()

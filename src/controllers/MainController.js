@@ -1,4 +1,7 @@
 const User = require('../models/User');
+const Category = require('../models/Category');
+const Product = require('../models/Product');
+
 module.exports = class MainController {
    static async index(req, res) {
       res.status(200).json({ 200: 'ok' });
@@ -76,5 +79,60 @@ module.exports = class MainController {
    //login
    static async login(req, res) {
       res.status(201).json({ 200: 'login ok' });
+   }
+   // create product
+   static async createProduct(req, res) {
+      const { name, description, quantity, price, category_name } = req.body;
+      try {
+         const category = await Category.findOne({
+            where: { name: category_name },
+         });
+         if (!category) {
+            return res.status(400).json({ error: 'Category not found' });
+         }
+         const product = await Product.create({
+            name,
+            description,
+            quantity,
+            price,
+            categoryId: category.id,
+         });
+         console.log(product.dataValues);
+         res.status(201).json({ 201: product });
+      } catch (error) {
+         console.log(error.message);
+         res.status(400).json({ 400: error.message });
+      }
+   }
+   // create category
+   static async createCategory(req, res) {
+      const { name, description } = req.body;
+      try {
+         const category = await Category.create({
+            name: name,
+            description: description,
+         });
+         console.log(category.dataValues);
+         res.status(201).json({ 201: category });
+      } catch (error) {
+         console.log(error.message);
+      }
+   }
+   //find all products includes category
+   static async getProductsDetails(req, res) {
+      try {
+         const products = await Product.findAll({
+            include: [
+               {
+                  model: Category,
+                  as: 'categories',
+               },
+            ],
+         });
+         res.status(200).json({ 200: products });
+      } catch (error) {
+         console.log(error.message);
+         res.status(400).json({ 400: { message: error.message } });
+      }
    }
 };
